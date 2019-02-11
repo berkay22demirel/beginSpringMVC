@@ -1,4 +1,4 @@
-package beginwebstoreexample;
+package webstoreexample;
 
 public class Product {
 

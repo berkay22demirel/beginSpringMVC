@@ -1,4 +1,4 @@
-package beginwebstoreexample;
+package webstoreexample;
 
 import java.util.List;
 
@@ -37,6 +37,24 @@ public class ProductServiceImpl implements ProductService {
 
 		return productDAO.getProductsByBrands(brands);
 
+	}
+
+	@Override
+	public int addProduct(Product product) {
+
+		return productDAO.addProduct(product);
+	}
+
+	@Override
+	public List<String> getManufacturerList() {
+
+		return productDAO.getManufacturerList();
+	}
+
+	@Override
+	public List<String> getCategoryList() {
+
+		return productDAO.getCategoryList();
 	}
 
 }

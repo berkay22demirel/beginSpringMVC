@@ -1,4 +1,4 @@
-package beginwebstoreexample;
+package webstoreexample;
 
 import java.util.List;
 
@@ -18,7 +18,7 @@ public class ProductController {
 	@Autowired
 	private ProductService productService;
 
-	@RequestMapping("/all")
+	@RequestMapping
 	public ModelAndView listAllProducts() {
 		ModelAndView modelAndView = new ModelAndView();
 

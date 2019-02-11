@@ -1,4 +1,4 @@
-package beginwebstoreexample;
+package webstoreexample;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -57,11 +57,21 @@ public class ProductDAOImpl implements ProductDAO {
 		lenovo.setManufacturer("Lenovo");
 		lenovo.setUnitsInStock(3000);
 
+		Product ipad = new Product();
+		ipad.setId(666666);
+		ipad.setName("Apple Ipad");
+		ipad.setPrice(499);
+		ipad.setDescription("Apple Ipad");
+		ipad.setCategory("Tablet");
+		ipad.setManufacturer("Apple");
+		ipad.setUnitsInStock(300);
+
 		products.add(iphone);
 		products.add(sonyXZ1);
 		products.add(mac);
 		products.add(dell);
 		products.add(lenovo);
+		products.add(ipad);
 
 	}
 
@@ -126,6 +136,49 @@ public class ProductDAOImpl implements ProductDAO {
 
 		return productsByBrand;
 
+	}
+
+	@Override
+	public int addProduct(Product product) {
+
+		products.add(product);
+
+		return product.getId();
+
+	}
+
+	@Override
+	public List<String> getManufacturerList() {
+
+		List<String> manufacturerList = new ArrayList<>();
+
+		for (Product product : products) {
+
+			if (manufacturerList.lastIndexOf(product.getManufacturer()) == -1) {
+
+				manufacturerList.add(product.getManufacturer());
+			}
+		}
+
+		return manufacturerList;
+
+	}
+
+	@Override
+	public List<String> getCategoryList() {
+		
+		List<String> categoryList = new ArrayList<>();
+
+		for (Product product : products) {
+
+			if (categoryList.lastIndexOf(product.getCategory()) == -1) {
+
+				categoryList.add(product.getCategory());
+			}
+		}
+
+		return categoryList;
+		
 	}
 
 }
