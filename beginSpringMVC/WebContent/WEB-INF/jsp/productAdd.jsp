@@ -1,5 +1,9 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"  %>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
+<%@ page contentType="text/html;charset=UTF-8" %>
+
+<c:set var="contextPath" value="${pageContext.request.contextPath}"/>
 
 <html>
 <head>
@@ -26,6 +30,7 @@
 					<label class="control-label col-lg-2 col-lg-2" for="id">Product Id</label>
 					<div class="col-lg-10">
 						<form:input id="id" path="id" type="text" class="form:input-large"/>
+						<form:errors path="id" cssClass="text-danger"/>
 					</div>
 				</div>
 
@@ -33,6 +38,7 @@
 					<label class="control-label col-lg-2" for="name">Name</label>
 					<div class="col-lg-10">
 						<form:input id="name" path="name" type="text" class="form:input-large"/>
+						<form:errors path="name" cssClass="text-danger"/>
 					</div>
 				</div>
 
@@ -41,6 +47,7 @@
 					<div class="col-lg-10">
 						<div class="form:input-prepend">
 							<form:input id="price" path="price" type="text" class="form:input-large"/>
+							<form:errors path="price" cssClass="text-danger"/>
 						</div>
 					</div>
 				</div>
@@ -49,6 +56,7 @@
 					<label class="control-label col-lg-2" for="description">Description</label>
 					<div class="col-lg-10">
 						<form:textarea id="description" path="description" rows = "2"/>
+						<form:errors path="description" cssClass="text-danger"/>
 					</div>
 				</div>
 
@@ -75,6 +83,7 @@
 						Stock</label>
 					<div class="col-lg-10">
 						<form:input id="unitsInStock" path="unitsInStock" type="text" class="form:input-large"/>
+						<form:errors path="unitsInStock" cssClass="text-danger"/>
 					</div>
 				</div>
 				

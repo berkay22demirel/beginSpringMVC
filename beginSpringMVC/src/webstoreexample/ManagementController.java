@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -15,6 +16,8 @@ public class ManagementController {
 
 	@Autowired
 	private ProductService productService;
+	@Autowired
+	private ProductValidator productValidator;
 
 	@GetMapping(value = "/product")
 	public String getProduct(@ModelAttribute("newProduct") Product product) {
@@ -26,7 +29,14 @@ public class ManagementController {
 	}
 
 	@PostMapping(value = "/product")
-	public String addProduct(@ModelAttribute("newProduct") Product product) {
+	public String addProduct(@ModelAttribute("newProduct") Product product,
+			BindingResult bindingResult) {
+
+		productValidator.validate(product, bindingResult);
+		
+		if (bindingResult.hasErrors()) {
+			return "/productAdd";
+		}
 
 		productService.addProduct(product);
 		return "redirect:/products";

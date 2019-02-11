@@ -18,8 +18,23 @@
    	<context:component-scan base-package="firstexample,multipage,multiactioncontroller,parameterannotations,webstoreexample" />
 	
 	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-    <property name="prefix" value="/WEB-INF/jsp/" />
-    <property name="suffix" value=".jsp" />
-</bean>
+	    <property name="prefix" value="/WEB-INF/jsp/" />
+	    <property name="suffix" value=".jsp" />
+	</bean>
+	
+	<bean id="messageSource" class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
+	    <property name="basename" value="/WEB-INF/messages/message" />
+	    <property name="defaultEncoding" value="UTF-8" />
+	</bean>
+	
+		 <bean id="localeResolver" class="org.springframework.web.servlet.i18n.SessionLocaleResolver">
+	     <property name="defaultLocale" value="tr" />
+	 </bean>
+	 
+	 <mvc:interceptors>
+	     <bean id="localeChangeInterceptor" class="org.springframework.web.servlet.i18n.LocaleChangeInterceptor">
+	     <property name="paramName" value="language" />
+	     </bean>
+	 </mvc:interceptors>
 
 </beans>
