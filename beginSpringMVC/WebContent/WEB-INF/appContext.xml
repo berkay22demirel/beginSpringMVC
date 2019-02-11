@@ -15,7 +15,7 @@
     
     <mvc:resources mapping="/resources/**" location="resources/"/>
     
-   	<context:component-scan base-package="firstexample,multipage,multiactioncontroller,parameterannotations,webstoreexample,exceptionhandling,jsonview" />
+   	<context:component-scan base-package="firstexample,multipage,multiactioncontroller,parameterannotations,webstoreexample,exceptionhandling,jsonview,xmlview" />
 	
 	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 	    <property name="prefix" value="/WEB-INF/jsp/" />
