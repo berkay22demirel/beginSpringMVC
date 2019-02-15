@@ -40,9 +40,9 @@ public class ProductServiceImpl implements ProductService {
 	}
 
 	@Override
-	public int addProduct(Product product) {
+	public void addProduct(Product product) {
 
-		return productDAO.addProduct(product);
+		productDAO.addProduct(product);
 	}
 
 	@Override

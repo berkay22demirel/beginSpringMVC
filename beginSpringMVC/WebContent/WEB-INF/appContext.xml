@@ -36,5 +36,10 @@
 	     <property name="paramName" value="language" />
 	     </bean>
 	 </mvc:interceptors>
+	 
+	 <bean id="entityManagerFactoryId"
+		class="org.springframework.orm.jpa.LocalEntityManagerFactoryBean">
+		<property name="persistenceUnitName" value="SpringJPA_MySQL_PU"></property>
+	</bean>
 
 </beans>

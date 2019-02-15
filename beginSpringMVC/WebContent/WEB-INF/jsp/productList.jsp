@@ -1,6 +1,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
-<c:set var="productUrlAll" value="${pageContext.request.contextPath}/products/all"/>
+<c:set var="productUrlAll" value="${pageContext.request.contextPath}/products"/>
 <c:set var="productUrlCategory" value="${pageContext.request.contextPath}/products/category"/>
 <c:set var="matrixUrl" value="${pageContext.request.contextPath}/products/brand"/>
 

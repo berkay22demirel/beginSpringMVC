@@ -12,7 +12,7 @@ public interface ProductService {
 
 	public List<Product> getProductsByBrands(List<String> brands);
 
-	public int addProduct(Product product);
+	public void addProduct(Product product);
 
 	public List<String> getManufacturerList();
 
