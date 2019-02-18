@@ -29,6 +29,8 @@ public class Comment {
 	private Date date;
 	@Column(name = "email")
 	private String email;
+	@Column(name = "star")
+	private Integer star;
 
 	public Comment() {
 		super();
@@ -36,7 +38,7 @@ public class Comment {
 
 	public Comment(Integer id, Integer productId, Integer userId,
 			String userName, String message, String messageHeading, Date date,
-			String email) {
+			String email, Integer star) {
 		super();
 		this.id = id;
 		this.productId = productId;
@@ -46,6 +48,7 @@ public class Comment {
 		this.messageHeading = messageHeading;
 		this.date = date;
 		this.email = email;
+		this.star = star;
 	}
 
 	public Integer getId() {
@@ -110,6 +113,14 @@ public class Comment {
 
 	public void setEmail(String email) {
 		this.email = email;
+	}
+
+	public Integer getStar() {
+		return star;
+	}
+
+	public void setStar(Integer star) {
+		this.star = star;
 	}
 
 }

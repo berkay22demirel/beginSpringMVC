@@ -11,15 +11,23 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public class ProductDAOImpl implements ProductDAO {
+	
+	public static List<Product> products = new ArrayList<>();
 
-	@Override
-	public List<Product> getAllProduct() {
+	static {
+
 		Product product = new Product();
+		List<Comment> comments = new ArrayList<>();
 		Product product2 = new Product();
+		List<Comment> comments2 = new ArrayList<>();
 		Product product3 = new Product();
+		List<Comment> comments3 = new ArrayList<>();
 		Product product4 = new Product();
+		List<Comment> comments4 = new ArrayList<>();
 		Product product5 = new Product();
+		List<Comment> comments5 = new ArrayList<>();
 		Product product6 = new Product();
+		List<Comment> comments6 = new ArrayList<>();
 
 		product.setId(1);
 		product.setName("Dell Laptop");
@@ -57,36 +65,6 @@ public class ProductDAOImpl implements ProductDAO {
 		product6.setListPrice(623.92);
 		product6.setVisual("macbookair.png");
 
-		List<Product> products = new ArrayList<>();
-		products.add(product);
-		products.add(product2);
-		products.add(product3);
-		products.add(product4);
-		products.add(product5);
-		products.add(product6);
-
-		return products;
-	}
-
-	@Override
-	public List<Product> getProductByCategory(String category) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public Product getProductById(Integer id) {
-
-		Product product = new Product();
-		product.setName("Dell Laptop");
-		product.setDescription("description123234sdlakdfaskkfkş1l3kş123ş12klsdfkaşsd");
-		product.setPrice(555.92);
-		product.setListPrice(623.92);
-		product.setVisual("delllaptop.jpg");
-		product.setStars(5.0);
-		
-		List<Comment> comments = new ArrayList<>();
-
 		Comment comment = new Comment();
 		comment.setMessage("deneme denemme denememe mdmemmemdme");
 		comment.setUserName("Berkay Demirel");
@@ -101,10 +79,57 @@ public class ProductDAOImpl implements ProductDAO {
 
 		comments.add(comment);
 		comments.add(comment2);
+		comments2.add(comment);
+		comments2.add(comment2);
+		comments3.add(comment);
+		comments3.add(comment2);
+		comments4.add(comment);
+		comments4.add(comment2);
+		comments5.add(comment);
+		comments5.add(comment2);
+		comments6.add(comment);
+		comments6.add(comment2);
 
 		product.setComments(comments);
+		product2.setComments(comments2);
+		product3.setComments(comments3);
+		product4.setComments(comments4);
+		product5.setComments(comments5);
+		product6.setComments(comments6);
 
-		return product;
+		products.add(product);
+		products.add(product2);
+		products.add(product3);
+		products.add(product4);
+		products.add(product5);
+		products.add(product6);
+
+	}
+
+	@Override
+	public List<Product> getAllProduct() {
+
+		return products;
+	}
+
+	@Override
+	public List<Product> getProductByCategory(String category) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Product getProductById(Integer id) {
+
+		for (Product product : products) {
+
+			if (product.getId().equals(id)) {
+
+				return product;
+			}
+		}
+
+		return null;
 	}
 
 	@Override

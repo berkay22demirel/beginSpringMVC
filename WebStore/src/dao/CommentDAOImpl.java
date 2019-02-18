@@ -3,6 +3,7 @@ package dao;
 import java.util.List;
 
 import model.Comment;
+import model.Product;
 
 import org.springframework.stereotype.Repository;
 
@@ -17,8 +18,20 @@ public class CommentDAOImpl implements CommentDAO {
 
 	@Override
 	public int insertComment(Comment comment) {
-		// TODO Auto-generated method stub
+
+		List<Product> products = ProductDAOImpl.products;
+
+		for (Product product : products) {
+
+			if (product.getId().compareTo(comment.getProductId()) == 0) {
+
+				product.getComments().add(comment);
+				return 1;
+			}
+		}
+
 		return 0;
+
 	}
 
 	@Override

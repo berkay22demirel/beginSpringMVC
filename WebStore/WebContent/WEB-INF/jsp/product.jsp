@@ -141,13 +141,13 @@
                   	</div>     
        			   </div>
        			   <div class="col-md-6 mt-5">
-                        <form>
+                        <form action="addComment" method="POST">
                                 <div class="form-group">
                                     <div class="input-group mb-3">
                                         <div class="input-group-prepend">
                                           <span class="input-group-text" id="basic-addon1"><i class="far fa-user"></i></span>
                                         </div>
-                                        <input type="name" class="form-control" id="exampleInputName1" aria-describedby="nameHelp" placeholder="Enter Name Surname">
+                                        <input type="text" name="userName" class="form-control" id="exampleInputName1" aria-describedby="nameHelp" placeholder="Enter Name Surname">
                                       </div>
                                 </div>
                                 <div class="form-group">
@@ -155,15 +155,15 @@
                                         <div class="input-group-prepend">
                                           <span class="input-group-text" id="basic-addon1"><i class="far fa-envelope"></i></span>
                                         </div>
-                                        <input type="email" class="form-control" id="exampleInputEMail1" placeholder="Enter E-Mail">
+                                        <input type="text" name="email" class="form-control" id="exampleInputEMail1" placeholder="Enter E-Mail">
                                       </div>
                                 </div>
                                 <div class="form-group">
                                         <div class="input-group mb-3">
                                             <div class="input-group-prepend">
-                                              <span class="input-group-text" id="basic-addon1"><i class="far fa-envelope"></i></span>
+                                              <span class="input-group-text" id="basic-addon1"><i class="fas fa-heading"></i></span>
                                             </div>
-                                            <input type="name" class="form-control" id="exampleInputMessageHeading" placeholder="Enter Your Message Heading">
+                                            <input type="text" name="messageHeading" class="form-control" id="exampleInputMessageHeading" placeholder="Enter Your Message Heading">
                                           </div>
                                     </div>
                                 <div class="form-group">
@@ -171,22 +171,22 @@
                                         <div class="input-group-prepend">
                                           <span class="input-group-text" id="basic-addon1"><i class="far fa-comment"></i></span>
                                         </div>
-                                        <textarea class="form-control" aria-label="With textarea" placeholder="Enter Your Message" rows="5"></textarea>
+                                        <textarea class="form-control" name="message" aria-label="With textarea" placeholder="Enter Your Message" rows="5"></textarea>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <div class="input-group">
-                                        <select class="custom-select my-1" id="inlineFormCustomSelectPref">
+                                        <select class="custom-select my-1" name="star" id="inlineFormCustomSelectPref">
                                             <option selected>Choose Star</option>
                                             <option value="1">One</option>
                                             <option value="2">Two</option>
                                             <option value="3">Three</option>
                                             <option value="4">Four</option>
-                                            <option value="53">Five</option>
+                                            <option value="5">Five</option>
                                         </select>
                                     </div>
                                 </div>
-                                
+                                <input type="hidden" name="productId" class="form-control" value="${product.id}">
                                 <button type="submit" class="btn btn-outline-primary">Add Comment</button>
                               </form>    
                   </div>
