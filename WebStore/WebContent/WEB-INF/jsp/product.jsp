@@ -17,7 +17,7 @@
   </head>
   <body>
     
-    <!-- NAVBAR -->
+<!-- NAVBAR -->
 
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container">
@@ -102,25 +102,96 @@
         
     <!-- Products -->
 
-    <section id="products" class="mt-5">
+    <section id="product" class="mt-5">
             <div class="container"> 
               <div class="row">
-              	  <c:forEach items="${products}" var="product">
-						 <div class="col-md-3">
-		                      <div class="card">
-		                          <img src="<c:url value="/resources/images/${product.visual}"/>" class="card-img-top img-fluid" alt="${product.name}">
-		                          <div class="card-body">
-		                            <h5 class="card-title">${product.name}</h5>
-		                          </div>
-		                          <div class="card-footer">
-		                                <small><s>${product.listPrice}$</s>  ${product.price}$</small>
-		                          </div>
-		                          <a href=" <c:url value="/product/${product.id}" /> " class="stretched-link"></a>
-		                        </div>
-		                  </div>
-					</c:forEach>
+                  <div class="col-md-10">
+                    <h1 class="display-4">${product.name}</h1>
+                  </div>
+                  <div id="stars" class="col-md-2 d-flex align-content-center flex-wrap">
+                    <p class="h5">
+                    	<c:forEach begin="1" end="${product.stars}" varStatus="loop">
+    						<i id="star" class="fas fa-star"></i>
+						</c:forEach>
+                    </p>
+                  </div>
+                  <div class="col-md-12">
+                    <img id="productImage" src="<c:url value="/resources/images/${product.visual}"/>" class="d-block w-100 img-fluid" alt="düzelt">
+                  </div>
+                  <div class="col-md-12 mt-3">
+                        <p class="h4">${product.description}</p>
+                  </div>
+                  <div class="col-md-12 mt-3 d-flex justify-content-end align-content-center flex-wrap">
+                  		<small><s>${product.listPrice}$</s></small> <h4>${product.price}$</h4> 
+                        <button class="btn btn-outline-primary my-2 mx-4 my-sm-0" type="submit"><i class="fas fa-shopping-cart"></i>  Buy Now</button>
+                        
+                  </div>
+                  <div class="col-md-6 mt-5">
+                	<div class="list-group">
+               			<c:forEach items="${product.comments}" var="comment">
+                 			<div class="list-group-item list-group-item-action">
+                  				<div class="d-flex w-100 justify-content-between">
+                      				<h5 class="mb-1">${comment.messageHeading}</h5>
+                                    <small>${comment.date}</small>
+                      			</div>
+                       				<p class="mb-1">${comment.message}</p>
+                     				<small>${comment.userName}</small>
+                                </div>
+                      	</c:forEach>
+                  	</div>     
+       			   </div>
+       			   <div class="col-md-6 mt-5">
+                        <form>
+                                <div class="form-group">
+                                    <div class="input-group mb-3">
+                                        <div class="input-group-prepend">
+                                          <span class="input-group-text" id="basic-addon1"><i class="far fa-user"></i></span>
+                                        </div>
+                                        <input type="name" class="form-control" id="exampleInputName1" aria-describedby="nameHelp" placeholder="Enter Name Surname">
+                                      </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="input-group mb-3">
+                                        <div class="input-group-prepend">
+                                          <span class="input-group-text" id="basic-addon1"><i class="far fa-envelope"></i></span>
+                                        </div>
+                                        <input type="email" class="form-control" id="exampleInputEMail1" placeholder="Enter E-Mail">
+                                      </div>
+                                </div>
+                                <div class="form-group">
+                                        <div class="input-group mb-3">
+                                            <div class="input-group-prepend">
+                                              <span class="input-group-text" id="basic-addon1"><i class="far fa-envelope"></i></span>
+                                            </div>
+                                            <input type="name" class="form-control" id="exampleInputMessageHeading" placeholder="Enter Your Message Heading">
+                                          </div>
+                                    </div>
+                                <div class="form-group">
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                          <span class="input-group-text" id="basic-addon1"><i class="far fa-comment"></i></span>
+                                        </div>
+                                        <textarea class="form-control" aria-label="With textarea" placeholder="Enter Your Message" rows="5"></textarea>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="input-group">
+                                        <select class="custom-select my-1" id="inlineFormCustomSelectPref">
+                                            <option selected>Choose Star</option>
+                                            <option value="1">One</option>
+                                            <option value="2">Two</option>
+                                            <option value="3">Three</option>
+                                            <option value="4">Four</option>
+                                            <option value="53">Five</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                
+                                <button type="submit" class="btn btn-outline-primary">Add Comment</button>
+                              </form>    
+                  </div>
               </div>  
-            </div>
+            </div>  
           </section>
 
         <!-- Footer Section -->

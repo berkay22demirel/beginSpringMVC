@@ -1,0 +1,33 @@
+#footer {
+    background-color: #343a40;
+}
+
+#products .card {
+    cursor: pointer;
+    transition: all 1s ease;
+}
+
+#products .card:hover {
+  	
+  	border-style: solid; 
+    border-width: 1px;
+    border-color: #007bff;
+    box-shadow: 0px 2px 10px #007bff;
+}
+
+#product #productImage {
+
+    height: 400px;
+    object-fit: cover;
+    
+}
+
+#product #stars #star {
+
+    color: #007bff;
+}
+
+#product #stars .h3 {
+
+    height: 100%;
+}
